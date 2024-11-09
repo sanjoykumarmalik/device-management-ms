@@ -1,8 +1,5 @@
 package com.example.devicemanagement;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class DeviceManagementController {
 
     @GetMapping("/devices")
-    private ResponseEntity<List<Device>> getAllDevices() {
-        List<Device> deviceList = new ArrayList<>();
-        Device d = new Device("000001", "ECG Machine", "12345ABCDE", "ExampleTech1");
-        deviceList.add(d);
+    private ResponseEntity<AllDevices> getAllDevices() {
+    	AllDevices deviceList = new AllDevices();
         return ResponseEntity.status(HttpStatus.OK).body(deviceList);
     }
 }
